@@ -1,106 +1,75 @@
-// array of objects to store zodiac data
-var zodiac = [
+var questions = [ 
 	{
-		sign: "aquarius",
-		fortune: "Knowledge, Humanitarian, Serious, Insightful, Duplicitous",
-		image: "img/aquarius.jpg",
+		question: "Claude Monet was born in Paris, France.",
+		answer: "T"
 	},
 	{
-		sign: "aries",
-		fortune: "Active, Demanding, Determined, Effective, Ambitious",
-		image: "img/aries.jpg"
+		question: "Monet was baptized Catholic but he went on to become an atheist.",
+		answer: "T"
 	},
 	{
-		sign: "cancer",
-		fortune: "Emotion, Diplomatic, Intensity, Impulsive, Selective",
-		image: "img/cancer.jpg"
+		question: "His painting, Sunrise, gave name to the Impressionist movement",
+		answer: "T"
 	},
 	{
-		sign: "capricorn",
-		fortune: "Determination, Dominance, Perservering, Practical, Willful",
-		image: "img/capricorn.jpg"
+		question: "Monet never served in the military",
+		answer: "F"
 	},
 	{
-		sign: "gemini",
-		fortune: "Communication, Indecision, Inquisitive, Intelligent, Changeable",
-		image: "img/gemini.jpg"
+		question: "Among all Impressionists, Monet drew the largest number of self-portraits",
+		answer: "F"
 	},
 	{
-		sign: "leo",
-		fortune: "Ruling, Warmth, Generosity, Faithful, Initiative",
-		image: "img/leo.jpg"
+		question: "The Woman in the Green Dress was painted after Camille, Monet's first wife, passed away. ",
+		answer: "F"
 	},
 	{
-		sign: "libra",
-		fortune: "Balance, Justice, Truth, Beauty, Perfection",
-		image: "img/libra.jpg"
+		question: "Monet's series of the ''Nymphea'' or Water Lilies consists of approximately 250 oil paintings which were painted by Monet during the last thirty years of his life",
+		answer: "T"
 	},
 	{
-		sign: "pisces",
-		fortune: "Fluctuation, Depth, Imagination, Reactive, Indecisive",
-		image: "img/pisces.jpg"
+		question: "Monet once wrote: ''My only merit lies in having painted directly in front of nature, seeking to render my impressions of the most fleeting effects.'' ",
+		answer: "T"
 	},
 	{
-		sign: "sagittarius",
-		fortune: "Philosophical, Motion, Experimentation, Optimism",
-		image: "img/sagittarius.jpg"
+		question: "The second wife of Monet was Japanese",
+		answer: "F"
 	},
 	{
-		sign: "scorpio",
-		fortune: "Transient, Self-Willed, Purposeful, Unyielding",
-		image: "img/scorpio.jpg"
-	},
-	{
-		sign: "taurus",
-		fortune: "	Security, Subtle strength, Appreciation, Instruction, Patience",
-		image: "img/taurus.jpg"
-	},
-	{
-		sign: "virgo",
-		fortune: "Analyzing, Practical, Reflective, Observation, Thoughtful",
-		image: "img/virgo.jpg"
+		question: "Monet died of liver cancer",
+		answer: "F"
 	}
+
 ]
 
-// function to determine user horoscope, function fires on user clicking button line 24 index.html
-function horoscope() {
-	// store the tag with id="sign" in var userdata
-	var userdata = document.getElementById("userdata")
-	// confirm the element exists and what value the user submits
-	console.log(userdata)
-	console.log("users value is: " + userdata.value)
-	
-	// loop through zodiac array one item at a time 
-	for(i = 0; i < zodiac.length; i = i + 1) {
-		// check what the users value is before using it in a condition
-		console.log("users value lowercase is: " + userdata.value.toLowerCase())
-		// check the current item's sign in the zodiac array
-		console.log("current zodiac sign in loop is: " + zodiac[i].sign)
-
-		// if the value the user typed in, changed to all lowercase letters, is equal to one of our signs, then we do something
-		if(userdata.value.toLowerCase() === zodiac[i].sign) {
-			// confirm the if statement ran
-			console.log("if statement ran")
-			// check some values in the console before updating HTML
-			console.log("users typed in: " + userdata.value)
-			console.log("current image value is: " + zodiac[i].image)
-			console.log("current fortune value is: " + zodiac[i].fortune)
-
-			// get element with id="userSign" and change the text to the user input
-			document.getElementById("yourSign").textContent = "Hello little " + userdata.value
-			// get element with id="icon" and change source attribute to current zodiac image path
-			document.getElementById("icon").src = zodiac[i].image
-			// // get element with id="yourHoroscope" and change the content to this concatenated string
-			document.getElementById("yourHoroscope").textContent = "You're best attributes are: " + zodiac[i].fortune
-
-			// stop the function because we found a match and added the data to the screen!!!
-			return
-		}
-		// confirm no matches are found if that's the case
-		console.log("no matches were found, user failed to type in a correct zodiac sign")
-		// if no match is found, do opposite of above, mostly clearing content and images
-		document.getElementById("yourSign").textContent = "Not one of the signs. Try again!"
-		document.getElementById("yourHoroscope").textContent = ""
-		document.getElementById("icon").src = ""
-	}
+for(i = 0; i < questions.length; i++) {
+	q = questions[i].question
+	document.getElementById('question' + [i]).textContent = q
 }
+
+function testResults() {
+	var correct = 0;
+	var incorrect = 0;
+	for(i = 0; i < questions.length; i++) {	
+		var answer = questions[i].answer
+		var guess = document.getElementById('answer' + [i]).value
+		var questionSpot = document.getElementById('question' + [i])
+		if(answer == guess) {
+			questionSpot.className = 'correct'
+			correct++
+		} else {
+			questionSpot.className = 'incorrect'
+			incorrect++
+		}
+	}
+	document.getElementById('correct').textContent = correct
+	document.getElementById('incorrect').textContent = incorrect
+}
+
+
+
+
+
+
+
+

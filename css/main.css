@@ -1,41 +1,49 @@
 
-body {
-	text-align: center;
-	font-family: 'Acme', sans-serif;
+.title {
+	text-align:center;
+	font-size:50px;
+}
+.correct {
+	color:green;
 }
 
-h1{
-	font-size: 30px;
+.incorrect {
+	color:red;
 }
 
-.formgroup{
-	display: block;
+h1.correct, h1.incorrect {
+	width:250px;
 }
 
-.picture {
+
+.bg{
 	background-image: url("../img/bg.jpg");
-	height: 300px;
+	background-size: 100% auto;
+	height: 200px; 
+}
+.openning p {
+	text-align: center;
+	font-size: 22px;
+}
+
+p{
+	text-align: center;
+	margin-bottom: 50px;
+}
+.form-group{
+	margin: 0px auto;
+	width: 60%;
 }
 
 button.btn{
-	background-color: #39f7d5;
-	border-color: #afbedf;
-	border-width: 2px;
-	color: #afbedf;
+	margin-left: 40%;
+	margin-top: 50px;
+	background-color: lightblue;
+	border-radius: 10px;
+	padding: 10px;
 }
+
 button.btn:hover{
-	background-color: #fba55a;
-	color: white;
-}
-
-.answer{
-	text-align: center;
-}
-form{
-	padding-top: 60px;
-}
-
-#yourHoroscope{
-	font-size: 18px;
-	margin-top: 20px;
+	cursor: pointer;
+	background-color: yellow;
 }
